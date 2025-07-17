@@ -288,6 +288,8 @@ public class AppGeneric extends jTPCCApplication {
     switch (jTPCC.dbType) {
       case jTPCCConfig.DB_POSTGRES:
       case jTPCCConfig.DB_MARIADB:
+      case jTPCCConfig.DB_H2:
+      case jTPCCConfig.DB_RATLY:
       case jTPCCConfig.DB_TSQL:
       case jTPCCConfig.DB_BABELFISH:
         stmtStockLevelSelectLow = dbConn.prepareStatement(

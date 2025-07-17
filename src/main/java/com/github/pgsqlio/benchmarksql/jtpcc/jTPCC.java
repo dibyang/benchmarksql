@@ -203,6 +203,10 @@ public class jTPCC {
       dbType = jTPCCConfig.DB_FIREBIRD;
     else if (iDBType.equals("mariadb"))
       dbType = jTPCCConfig.DB_MARIADB;
+    else if (iDBType.equals("h2"))
+      dbType = jTPCCConfig.DB_H2;
+    else if (iDBType.equals("ratly"))
+      dbType = jTPCCConfig.DB_RATLY;
     else if (iDBType.equals("transact-sql"))
       dbType = jTPCCConfig.DB_TSQL;
     else if (iDBType.equals("babelfish"))

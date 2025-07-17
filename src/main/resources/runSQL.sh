@@ -51,5 +51,6 @@ echo "# ------------------------------------------------------------"
 myOPTS="-Dprop=$1"
 myOPTS="${myOPTS} -DcommandFile=${SQL_FILE}"
 myOPTS="${myOPTS} -Djava.security.egd=file:/dev/./urandom"
+myOPTS="${myOPTS} -Dlog4j.configurationFile=./log4j2.xml"
 
 java -cp "$myCP" $myOPTS com.github.pgsqlio.benchmarksql.jdbc.ExecJDBC

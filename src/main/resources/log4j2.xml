@@ -5,6 +5,16 @@
 			<!-- %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n -->
 			<PatternLayout pattern="%d %5p - %m%n" />
 		</Console>
+		<File name="std" fileName="std_log4j.log">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+		</File>
+		<File name="RatlyLog" fileName="ratly.log">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+		</File>
 		<File name="BenchmarkLog" fileName="benchmark.log">
 			<PatternLayout>
 				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
@@ -18,12 +28,16 @@
 	</Appenders>
 	<Loggers>
 		<Root level="info">
-			<AppenderRef ref="Console" />
+			<AppenderRef ref="std" />
 		</Root>
 		<Logger name="com.github.pgsqlio.benchmarksql" level="info"
-			additivity="false">
+				additivity="false">
 			<AppenderRef ref="Console" />
 			<AppenderRef ref="BenchmarkLog" />
+		</Logger>
+		<Logger name="net.xdob.ratly" level="info"
+			additivity="false">
+			<AppenderRef ref="RatlyLog" />
 		</Logger>
 		<Logger name="com.github.pgsqlio.benchmarksql.jtpcc.jTPCCMonkey.terminalIO" level="info"
 			additivity="false">

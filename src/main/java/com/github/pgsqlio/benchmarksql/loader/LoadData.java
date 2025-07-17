@@ -160,15 +160,15 @@ public class LoadData {
     workers = new LoadDataWorker[numWorkers];
     workerThreads = new Thread[numWorkers];
     for (i = 0; i < numWorkers; i++) {
-      Connection dbConn;
-
       try {
-        dbConn = DriverManager.getConnection(db, dbProps);
-        dbConn.setAutoCommit(false);
-        if (writeCSV)
+        if (writeCSV) {
           workers[i] = new LoadDataWorker(i, csvNullValue, rnd.newRandom());
-        else
+        }
+        else {
+          Connection dbConn = DriverManager.getConnection(db, dbProps);
+          dbConn.setAutoCommit(false);
           workers[i] = new LoadDataWorker(i, dbConn, rnd.newRandom());
+        }
         workerThreads[i] = new Thread(workers[i]);
         workerThreads[i].start();
       } catch (SQLException se) {

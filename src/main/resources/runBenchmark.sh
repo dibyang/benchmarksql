@@ -18,6 +18,7 @@ setCP || exit 1
 
 myOPTS="-Dprop=$1 -DrunID=${SEQ}"
 myOPTS="${myOPTS} -Djava.security.egd=file:/dev/./urandom"
+myOPTS="${myOPTS} -Dlog4j.configurationFile=./log4j2.xml"
 
 java -cp "$myCP" $myOPTS com.github.pgsqlio.benchmarksql.jtpcc.jTPCC &
 PID=$!

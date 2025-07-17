@@ -12,5 +12,6 @@ setCP || exit 1
 
 myOPTS="-Dprop=${PROPS}"
 myOPTS="${myOPTS} -Djava.security.egd=file:/dev/./urandom"
+myOPTS="${myOPTS} -Dlog4j.configurationFile=./log4j2.xml"
 
 java -cp "$myCP" $myOPTS com.github.pgsqlio.benchmarksql.loader.LoadData $*

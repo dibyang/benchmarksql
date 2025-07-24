@@ -230,7 +230,7 @@ public class LoadDataWorker implements Runnable {
       stmtConfig.execute();
     }
 
-    for (i_id = 1; i_id <= 100000; i_id++) {
+    for (i_id = 1; i_id <= 10_0000; i_id++) {
       String iData;
 
       if (i_id != 1 && (i_id - 1) % 1000 == 0) {
@@ -315,7 +315,7 @@ public class LoadDataWorker implements Runnable {
     /*
      * For each WAREHOUSE there are 100,000 STOCK rows.
      */
-    for (int s_i_id = 1; s_i_id <= 100000; s_i_id++) {
+    for (int s_i_id = 1; s_i_id <= 10_0000; s_i_id++) {
       String sData;
       /*
        * Load the data in batches of 10,000 rows.

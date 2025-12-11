@@ -25,7 +25,9 @@ function getProp()
 # ----
 function setCP()
 {
-    case "$(getProp db)" in
+  db=$(getProp db)
+  db=$(getProp db | tr -d '\r\n')
+  case "${db}" in
 	oracle)
 	    cp="../lib/*"
 	    if [ ! -z "${ORACLE_HOME}" -a -d ${ORACLE_HOME}/lib ] ; then
@@ -64,13 +66,14 @@ function setCP()
 # is a database, we support.
 # ----
 db=$(getProp db)
+db=$(getProp db | tr -d '\r\n')
 case "${db}" in
-    oracle|postgres|firebird|mariadb|transact-sql|babelfish|h2|ratly)
+    oracle|postgres|firebird|mariadb|transact-sql|babelfish|ratly|h2)
 	;;
     "")	echo "ERROR: missing db= config option in ${PROPS}" >&2
 	exit 1
 	;;
-    *)	echo "ERROR: unsupported database type db=${db} in ${PROPS}" >&2
+    *)	echo "ERROR: unsupported database type db pp007=${db} in ${PROPS}" >&2
 	exit 1
 	;;
 esac

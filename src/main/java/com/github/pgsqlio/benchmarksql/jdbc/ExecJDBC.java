@@ -1,5 +1,8 @@
 package com.github.pgsqlio.benchmarksql.jdbc;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -10,8 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 
 /**
  * ExecJDBC - Command line program to process SQL DDL statements, from a text input file, to any
@@ -22,7 +24,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class ExecJDBC {
 
-  private static Logger log = LogManager.getLogger(ExecJDBC.class);
+  private static Logger log = LoggerFactory.getLogger(ExecJDBC.class);
 
   public static void main(String[] args) {
 
@@ -128,14 +130,14 @@ public class ExecJDBC {
 
     } catch (IOException ie) {
       log.error(ie.getMessage());
-      log.info(ie);
+      log.info("", ie);
       System.exit(1);
     } catch (SQLException se) {
       log.error(se.getMessage());
-      log.info(se);
+      log.info("", se);
       System.exit(1);
     } catch (Exception e) {
-      log.error(e);
+      log.error("", e);
       System.exit(1);
       // exit Cleanly
     } finally {
@@ -143,7 +145,7 @@ public class ExecJDBC {
         if (conn != null)
           conn.close();
       } catch (SQLException se) {
-        log.error(se);
+        log.error("", se);
       } // end finally
 
     } // end try
@@ -159,7 +161,7 @@ public class ExecJDBC {
       stmt.execute(query);
     } catch (SQLException se) {
       log.error(se.getMessage());
-      log.info(se);
+      log.info("", se);
     } // end try
 
   } // end execJDBCCommand

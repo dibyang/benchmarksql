@@ -9,3 +9,4 @@ service_data
 .settings
 __pycache__
 /.idea/
+/.gradle/

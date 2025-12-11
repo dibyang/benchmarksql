@@ -44,7 +44,7 @@ dependencies {
     api 'org.firebirdsql.jdbc:jaybird:4.0.3.java11'
     api 'net.xdob.h2db:h2db:2.2.8'
     api 'com.google.protobuf:protobuf-java:3.25.5'
-    api 'net.xdob.ratly:ratly-jdbc-client:3.23.0'
+    api "net.xdob.ratly:ratly-jdbc-client:${ratly_version}"
     api 'org.apache.ant:ant:1.8.2'
 }
 
